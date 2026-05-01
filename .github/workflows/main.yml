@@ -2,17 +2,17 @@ name: APK_Uretici
 on: push
 
 jobs:
-  android:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+        - uses: actions/checkout@v4
 
-      - name: Buildozer ile APK Yap
+        - name: Buildozer ile APK Yap
         uses: ArtemSerebriakov/buildozer-action@v1
         with:
           command: buildozer android debug
 
-      - name: APK Dosyasini Yukle
+        - name: APK Dosyasini Yukle
         uses: actions/upload-artifact@v4
         with:
           name: Sivas_Program_Uygulamasi
