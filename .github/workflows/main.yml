@@ -1,0 +1,17 @@
+name: APK_Uretici
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Buildozer ile APK Yap
+        uses: ArtemSerebriakov/buildozer-action@v1
+        with:
+          command: buildozer android debug
+      - name: APK Dosyasini Yukle
+        uses: actions/upload-artifact@v2
+        with:
+          name: Sivas_Program_Uygulamasi
+          path: bin/*.apk
